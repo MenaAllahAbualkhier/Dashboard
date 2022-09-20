@@ -1,0 +1,30 @@
+﻿@model Demo.BL.Models.DepartmentVM
+@{
+    ViewBag.Title = SharedLocalizer["Create New Department"];
+}
+
+
+<h2>
+    @SharedLocalizer["Create New Department"]
+</h2>
+<form class="form-group w-75" asp-action="Create" asp-controller="Department">
+    <label asp-for="Name">@SharedLocalizer["Name"]</label>
+    <input type="text" class="form-control" asp-for="Name" />
+    <span class="alert alert-danger padding-0" asp-validation-for="Name"></span>
+    <br />
+    <label asp-for="Code">@SharedLocalizer["Code"]</label>
+    <input type="text" class="form-control" asp-for="Code" />
+    <span class="alert alert-warning padding-0" asp-validation-for="Code"></span>
+    <br />
+    <br />
+    <input type="submit" value="@SharedLocalizer["Save"]" class="btn btn-danger btn-lg " />
+    <input type="reset" value="@SharedLocalizer["Cancel"]" class="btn btn-warning btn-lg" />
+    <td><a class="btn bg-purple btn-lg" asp-action="Index" asp-controller="Department" >@SharedLocalizer["Back To Data"]</a></td>
+
+
+</form>
+
+
+
+
+

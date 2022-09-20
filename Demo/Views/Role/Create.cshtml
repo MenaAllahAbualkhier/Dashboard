@@ -1,0 +1,23 @@
+﻿@model IdentityRole
+@{
+    ViewBag.Title = "Create Roel";
+}
+
+<h2>Create Role</h2>
+<form asp-action="Create" asp-controller="Role" class="form-group">
+    <div asp-validation-summary="All" class=" alert alert-danger padding-0"></div>
+    <label asp-for="Name">Name</label>
+    <input type="text" asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name"></span>
+    <br />
+    <Center>
+        <input type="submit" value="Save" class="btn btn-danger btn-lg" />
+        <input type="reset" value="Cancel" class="btn btn-warning btn-lg" />
+    </Center>
+</form>
+
+@section Validation {
+    <script src="~/plugins/jquery-validation/jquery.validate.js"></script>
+    <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+

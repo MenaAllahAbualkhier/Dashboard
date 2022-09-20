@@ -1,0 +1,56 @@
+﻿@model Demo.BL.Models.EmployeeVM
+@{
+    ViewBag.Title = SharedLocalizer["Delete"];
+}
+
+<h2>@SharedLocalizer["Delete Employee"]</h2>
+<form class="form-group w-75" asp-action="Delete" asp-controller="Employee">
+
+    <label asp-for="Name">@SharedLocalizer["Name"]</label>
+    <input type="text" class="form-control" asp-for="Name" disabled />
+    <br />
+
+    <label asp-for="Salary">@SharedLocalizer["Salary"]</label>
+    <input type="text" class="form-control" asp-for="Salary" disabled/>
+    <br />
+
+    <label asp-for="HireDate">@SharedLocalizer["HireDate"]</label>
+    <input type="date" class="form-control" asp-for="HireDate"disabled />
+    <br />
+
+    <label asp-for="Note">@SharedLocalizer["Note"]</label>
+    <textarea rows="5" class="form-control" asp-for="Note" disabled></textarea>
+    <br />
+
+    <label asp-for="Email">@SharedLocalizer["Email"]</label>
+    <input type="email" class="form-control" asp-for="Email"  disabled/>
+    <br />
+
+    <label asp-for="Address">@SharedLocalizer["Address"]</label>
+    <input type="text" class="form-control" asp-for="Address" disabled/>
+    <br />
+
+    <div class="demo-checkbox" >
+        <input type="checkbox" asp-for="IsActive" disabled>
+        <label asp-for="IsActive">@SharedLocalizer["IsActive"]</label>
+    </div>
+    <br />
+
+    <select asp-for="DepartmentId" asp-items="(SelectList)ViewBag.DepartmentList" disabled>
+        <option disabled>@SharedLocalizer["Choose Department"]</option>
+    </select>
+    <br />
+    <br />
+    <center>
+        <input type="submit" value="@SharedLocalizer["Delete"]" class="btn bg-amber btn-lg" />
+        <input type="reset" value="@SharedLocalizer["Cancel"]" class="btn bg-purple btn-lg" />
+        <a asp-action="Index" asp-controller="Employee" class="btn btn-warning btn-lg">@SharedLocalizer["Back To Data"]</a>
+        <a asp-action="Update" asp-controller="Employee" class="btn btn-danger btn-lg" asp-route-Id="@Model.Id">@SharedLocalizer["Update"]</a>
+    </center>
+</form>
+
+
+@section BootstrapSelectList {
+    <link href="~/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+}
+

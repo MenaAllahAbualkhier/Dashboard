@@ -1,0 +1,25 @@
+﻿@model IdentityRole
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit Role</h2>
+<form asp-action="Edit" asp-controller="Role"  class="form-group">
+    <div asp-validation-summary="All" class=" alert alert-danger padding-0 "  ></div>
+    <label asp-for="Id">Id</label>
+    <input type="text" asp-for="Id" class="form-control" disabled />
+    <br />
+    <label asp-for="Name">Name</label>
+    <input  asp-for="Name" class="form-control"/>
+    <br /><br />
+    <center>
+        
+        <input type="submit"  class="btn bg-danger btn-lg"  value="Edit" />
+        <input type="reset" class="btn btn-warning btn-lg" value="Cancel" />
+        <a asp-action="AddOrRemoveUser" asp-controller="Role" asp-route-RoleId="@Model.Id" class="tn bg-grey btn-lg">Add Or Remove User</a>
+        <a asp-action="Index" asp-controller="Role"class="btn bg-purple btn-lg" >Back To Data</a>
+    </center>
+
+
+</form>
+

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Demo.BL.Models.CvInformationVM>
+@{
+    ViewBag.Title = "CV Information";
+}
+
+<h2>CV Information</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>CV</th>
+            <th>Photo</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td><a href="~/File/Doce/@item.CvName" download="download">Download</a></td>
+                    <td><img src="~/File/Image/@item.PhotoName" width="150" height="150" /></td>
+                    <td><a asp-action="Delete" asp-controller="CV" class="btn bg-purple" asp-route-id="@item.Id">Delete</a></td>
+                </tr>
+            }
+    </tbody>
+</table>
+<a class="btn bg-red waves-effect" asp-action="Create" asp-controller="CV">
+    <i class="material-icons">group_add</i>
+    <span>Add CV</span>
+</a>
+

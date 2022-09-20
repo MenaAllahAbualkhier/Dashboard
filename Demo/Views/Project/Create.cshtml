@@ -1,0 +1,35 @@
+﻿@model Demo.BL.Models.ProjectVM
+@inject Demo.BL.Interface.IDepartmentRepo department
+@{
+    ViewBag.Title = SharedLocalizer["Create Project"];
+}
+
+<h2>@SharedLocalizer["Create Project"]</h2>
+<form class="form-group" asp-action="Create" asp-controller="Project">
+    <label asp-for="Name">@SharedLocalizer["Name"]</label>
+    <input type="text" asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="alert alert-danger padding-0"></span>
+    <br />
+    <select asp-for="DepartmentId">
+        <option disabled>@SharedLocalizer["Choose Department"]</option>
+        @foreach (var item in department.Get())
+        {
+            <option value="@item.Id">@item.Name</option>
+        }
+    </select>
+    <center>
+        <input type="submit" value="@SharedLocalizer["Save"]" class="btn btn-danger btn-lg " />
+        <input type="reset" value="@SharedLocalizer["Cancel"]" class="btn btn-warning btn-lg" />
+        <a asp-action="Index" asp-controller="Project" class="btn bg-purple btn-lg">@SharedLocalizer["Back To Data"]</a>
+
+    </center>
+</form>
+
+@section Validation {
+    <script src="~/plugins/jquery-validation/jquery.validate.js"></script>
+    <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+@section BootstrapSelectList {
+    <link href="~/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+}
+

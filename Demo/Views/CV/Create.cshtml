@@ -1,0 +1,22 @@
+﻿@model Demo.BL.Models.CvInformationVM
+@{
+    ViewBag.Title = "Add CV ";
+}
+
+<h2>Add CV</h2>
+
+<br />
+<form  asp-action="Create" asp-controller="CV" enctype="multipart/form-data" class="form-group">
+    <label asp-for="CV">CV</label>
+    <input type="file" asp-for="CV"  class="form-control"/>
+    <br />
+    <label asp-for="Photo">Photo</label>
+    <input type="file" asp-for="Photo"  class="form-control"/>
+    <br />
+    <center>
+        <input type="submit" class="btn btn-danger btn-lg" value="Send" />
+        <input type="reset" value="Cancel" class="btn btn-warning btn-lg" />
+    </center>
+ 
+</form>
+

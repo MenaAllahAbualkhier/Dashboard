@@ -1,0 +1,22 @@
+﻿@model Demo.BL.Models.UserVM
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<label asp-for="Id">Id</label>
+<input disabled asp-for="Id" class="form-control" />
+<br />
+<label asp-for="UserName">UserName</label>
+<input disabled asp-for="UserName" class="form-control" />
+<br />
+<label asp-for="Email">Email</label>
+<input disabled asp-for="Email" class="form-control" />
+<br />
+<label asp-for="PhoneNumber">PhoneNumber</label>
+<input disabled asp-for="PhoneNumber" class="form-control" />
+<br />
+<br />
+<a asp-action="Index" asp-controller="User" class="btn btn-warning btn-lg">@SharedLocalizer["Back To Data"]</a>
+<a asp-action="Update" asp-controller="User" class="btn bg-purple btn-lg" asp-route-Id="@Model.Id">@SharedLocalizer["Update"]</a>
+<a asp-action="Delete" asp-controller="User" class="btn btn-danger btn-lg" asp-route-Id="@Model.Id">@SharedLocalizer["Delete"]</a>

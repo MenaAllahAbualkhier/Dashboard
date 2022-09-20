@@ -1,0 +1,36 @@
+﻿@inject Demo.BL.Interface.IProjectRepo project
+@{
+    ViewBag.Title = SharedLocalizer["Project Card"];
+}
+
+<h2>@SharedLocalizer["Project Card"]</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@SharedLocalizer["Id"]</th>
+            <th>@SharedLocalizer["Name"]</th>
+            <th>@SharedLocalizer["Department"]</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in project.Get())
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Department.Name</td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<br />
+
+<a class="btn bg-red waves-effect" asp-action="Create" asp-controller="Project">
+    <i class="material-icons">group_add</i>
+    <span>@SharedLocalizer["Create New Project"]</span>
+</a>
+
+
+

@@ -1,0 +1,22 @@
+﻿@model List<Demo.BL.Models.UserInRoleVM>
+@{
+    ViewBag.Title = "AddOrRemoveUser";
+    var Role = ViewBag.roleid;
+}
+
+<h2>Add Or Remove User</h2>
+<form method="post" class="form-group">
+    @for (int i=0; i< Model.Count; i++)
+    {
+        <input type="checkbox" class="filled-in" asp-for="@Model[i].IsSelected" />
+        <label asp-for="@Model[i].IsSelected">@Model[i].UserName</label>
+        <input type="hidden" asp-for="@Model[i].UserName" />
+        <input type="hidden" asp-for="@Model[i].UserId" />
+        <br />
+    }
+    <br />
+
+    <input type="submit" value="Edit" class="btn btn-danger btn-lg" /> 
+    <a  class="btn btn-warning btn-lg"  asp-route-Id="@Role" asp-action="Edit" asp-controller="Role">Cancel</a>
+</form>
+
